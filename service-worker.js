@@ -50,7 +50,7 @@ workbox.routing.registerRoute(
     plugins: [
       new workbox.expiration.Plugin({
         maxEntries: 60,
-        maxAgeSeconds: 30 * 24 * 60 * 60, // 30 hari
+        maxAgeSeconds: 30 * 24 * 60 * 60, 
       }),
     ],
   })
@@ -58,11 +58,8 @@ workbox.routing.registerRoute(
 
 
 const offlinePage = '/offline_page.html';
-/**
- * Pages to cache
- */
 workbox.routing.registerRoute(
-  new RegExp('https://top-euro-league.web.app/'),
+  new RegExp('https://dandiindrawijaya.github.io/'),
   async ({event}) => {
     try {
       return await workbox.strategies.staleWhileRevalidate({
@@ -74,18 +71,6 @@ workbox.routing.registerRoute(
   },
 );
 
-workbox.routing.registerRoute(
-  new RegExp('https://top-euro-league.firebaseapp.com/'),
-  async ({event}) => {
-    try {
-      return await workbox.strategies.staleWhileRevalidate({
-          cacheName: 'cache-pages',
-      }).handle({event});
-    } catch (error) {
-      return caches.match(offlinePage);
-    }
-  },
-);
 
 self.addEventListener('push', function(event) {
   let body;
