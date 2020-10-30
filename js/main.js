@@ -6,8 +6,11 @@ const main = () => {
 		document.getElementById("nav").innerHTML = `
 			<div class="nav-wrapper container">
 			<a href="#" class="brand-logo" id="logo-container" style=""><img height="60" src="./images/logo.png" /></a>
-			<a href="#" class="sidenav-trigger" data-target="nav-mobile" style="color: white;">&#9776;</a>
-	
+			<a href="#" class="sidenav-trigger" data-target="nav-mobile">
+				<span style="color: white;">
+					&#9776;
+				</span>
+			</a>
 			<ul class="topnav right hide-on-med-and-down"></ul>
 			<ul class="sidenav" style="background-color: #393e46;" id="nav-mobile"></ul>
 		</div>
